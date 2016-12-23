@@ -13,6 +13,7 @@ import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
@@ -93,18 +94,25 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
     @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         Mat rgba = inputFrame.rgba();
-        Mat hsv = new Mat();
-        Imgproc.cvtColor(rgba, hsv, Imgproc.COLOR_RGB2HSV);
-        Imgproc.medianBlur(hsv, hsv, 3);
-        Core.inRange(hsv, new Scalar(0, 100, 30), new Scalar(10, 255, 255), hsv);
-        ArrayList<MatOfPoint> contours = new ArrayList<MatOfPoint>();
-        Mat hierarchy = new Mat(hsv.cols(), hsv.rows(), CvType.CV_32SC1);
-        Imgproc.findContours(hsv, contours, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_NONE);
-        if (contours != null) {
-
-
+        MatOfPoint maxArea = SkinDetector.getInstance().getMaxSkinArea(rgba);
+        if (maxArea != null) {
+            Rect rectOfArea = Imgproc.boundingRect(maxArea);
+            Imgproc.rectangle(rgba, rectOfArea.tl(), rectOfArea.br(), new Scalar(0, 0, 255), 3);
         }
-        return inputFrame.rgba();
+        return rgba;
+
+//        Mat hsv = new Mat();
+//        Imgproc.cvtColor(rgba, hsv, Imgproc.COLOR_RGB2HSV);
+//        Imgproc.medianBlur(hsv, hsv, 3);
+//        Core.inRange(hsv, new Scalar(0, 100, 30), new Scalar(10, 255, 255), hsv);
+//        ArrayList<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+//        Mat hierarchy = new Mat(hsv.cols(), hsv.rows(), CvType.CV_32SC1);
+//        Imgproc.findContours(hsv, contours, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_NONE);
+//        if (contours != null) {
+//
+//
+//        }
+//        return inputFrame.rgba();
     }
 }
 
