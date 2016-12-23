@@ -97,7 +97,7 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
         MatOfPoint maxArea = SkinDetector.getInstance().getMaxSkinArea(rgba);
         if (maxArea != null) {
             Rect rectOfArea = Imgproc.boundingRect(maxArea);
-            Imgproc.rectangle(rgba, rectOfArea.tl(), rectOfArea.br(), new Scalar(0, 0, 255), 3);
+            Imgproc.rectangle(rgba, rectOfArea.tl(), rectOfArea.br(), new Scalar(0, 255, 0), 3);
         }
         return rgba;
 
