@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com4.example.swatanabe.proj_nvab"
+        applicationId "jp.gr.java_conf.swatanabe.proj_nvab"
         minSdkVersion 23
         targetSdkVersion 24
         versionCode 1
