@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:keepScreenOn="true"
-    tools:context="com4.example.swatanabe.proj_nvab.MainActivity">
+    tools:context="jp.gr.java_conf.swatanabe.proj_nvab.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

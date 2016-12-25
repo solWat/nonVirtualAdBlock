@@ -1,4 +1,4 @@
-package com4.example.swatanabe.proj_nvab;
+package jp.gr.java_conf.swatanabe.proj_nvab;
 
 /**
  * Created by s.Watanabe on 2016/12/23.
