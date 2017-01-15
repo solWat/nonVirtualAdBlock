@@ -27,6 +27,7 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCameraView = (CameraBridgeViewBase) findViewById(R.id.camera_view);
+
         mCameraView.setCvCameraViewListener(this);
     }
 
