@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.SurfaceView;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -28,6 +29,8 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
         setContentView(R.layout.activity_main);
         mCameraView = (CameraBridgeViewBase) findViewById(R.id.camera_view);
 
+        mCameraView.setMaxFrameSize(320, 240); //(854,480)がいい感じかも．
+        mCameraView.setVisibility(SurfaceView.VISIBLE);
         mCameraView.setCvCameraViewListener(this);
     }
 
