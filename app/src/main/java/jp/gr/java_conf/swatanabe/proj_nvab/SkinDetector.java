@@ -62,6 +62,11 @@ public class SkinDetector {
             }
         }
 
-        return contours.get(maxIdx);
+        MatOfPoint temp_contour = null;
+        if(maxIdx>0) {
+            temp_contour = contours.get(maxIdx);
+        }
+
+        return temp_contour;
     }
 }
