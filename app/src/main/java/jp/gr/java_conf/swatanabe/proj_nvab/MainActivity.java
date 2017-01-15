@@ -28,7 +28,6 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCameraView = (CameraBridgeViewBase) findViewById(R.id.camera_view);
-
         mCameraView.setMaxFrameSize(320, 240); //(854,480)がいい感じかも．
         mCameraView.setVisibility(SurfaceView.VISIBLE);
         mCameraView.setCvCameraViewListener(this);
